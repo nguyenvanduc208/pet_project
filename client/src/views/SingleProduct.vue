@@ -21,26 +21,26 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
                                     aria-controls="home" aria-selected="true"><img
-                                        src="http://localhost:5173/asset/img/shop/shop-details/2.jpg" alt=""></a>
+                                        src="/asset/img/shop/shop-details/2.jpg" alt=""></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
                                     aria-controls="profile" aria-selected="false"><img
-                                        src="http://localhost:5173/asset/img/shop/shop-details/3.jpg" alt=""></a>
+                                        src="/asset/img/shop/shop-details/3.jpg" alt=""></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
                                     aria-controls="contact" aria-selected="false"><img
-                                        src="http://localhost:5173/asset/img/shop/shop-details/4.jpg" alt=""></a>
+                                        src="/asset/img/shop/shop-details/4.jpg" alt=""></a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <img :src="getPhoto()" alt="aaaa"></div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><img
-                                    src="http://localhost:5173/asset/img/shop/shop-details/1.jpg" alt=""></div>
+                                    src="/asset/img/shop/shop-details/1.jpg" alt=""></div>
                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><img
-                                    src="http://localhost:5173/asset/img/shop/shop-details/1.jpg" alt=""></div>
+                                    src="/asset/img/shop/shop-details/1.jpg" alt=""></div>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                                     <div class="product-commnets">
                                         <div class="product-commnets-list">
                                             <div class="pro-comments-img">
-                                                <img src="http://localhost:5173/asset/img/shop/shop-details/1.png" alt="">
+                                                <img src="/asset/img/shop/shop-details/1.png" alt="">
                                             </div>
                                             <div class="pro-commnets-text">
                                                 <h4>Roger West -
@@ -136,7 +136,7 @@
                                         </div>
                                         <div class="product-commnets-list mt-30">
                                             <div class="pro-comments-img">
-                                                <img src="http://localhost:5173/asset/img/shop/shop-details/2.png" alt="">
+                                                <img src="/asset/img/shop/shop-details/2.png" alt="">
                                             </div>
                                             <div class="pro-commnets-text">
                                                 <h4>Roger West -
@@ -235,7 +235,7 @@
                     <div class="col-xl-12">
                         <div class="shop-wrapper">
                             <div class="shop-img">
-                                <a href="#"><img src="http://localhost:5173/asset/img/shop/shop1.jpg" alt="" /></a>
+                                <a href="#"><img src="/asset/img/shop/shop1.jpg" alt="" /></a>
                             </div>
                             <div class="shop-text">
                                 <h3><a href="#">Apple cider sauce and pork</a></h3>
@@ -246,7 +246,7 @@
                     <div class="col-xl-12">
                         <div class="shop-wrapper">
                             <div class="shop-img">
-                                <a href="#"><img src="http://localhost:5173/asset/img/shop/shop2.jpg" alt="" /></a>
+                                <a href="#"><img src="/asset/img/shop/shop2.jpg" alt="" /></a>
                             </div>
                             <div class="shop-text">
                                 <h3><a href="#">Chicken Ball </a></h3>
@@ -257,7 +257,7 @@
                     <div class="col-xl-12">
                         <div class="shop-wrapper">
                             <div class="shop-img">
-                                <a href="#"><img src="http://localhost:5173/asset/img/shop/shop3.jpg" alt="" /></a>
+                                <a href="#"><img src="/asset/img/shop/shop3.jpg" alt="" /></a>
                             </div>
                             <div class="shop-text">
                                 <h3><a href="#">Vegetable Pakura</a></h3>
@@ -277,7 +277,7 @@ export default {
     name: 'SingleProduct',
     methods: {
         getPhoto() {
-            return 'http://localhost:5173/asset/img/shop/shop-details/1.jpg';
+            return '/asset/img/shop/shop-details/1.jpg';
       }
     }
 }
