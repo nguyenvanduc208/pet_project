@@ -6,7 +6,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-6">
                         <div class="footer-wrapper mb-30">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="asset/img/logo/logo.png" alt="" /></a>
+                                <a href="index.html"><img src="/asset/img/logo/logo.png" alt="" /></a>
                             </div>
                             <div class="footer-text">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet, enim nec
@@ -37,12 +37,12 @@
                         <div class="footer-wrapper mb-30">
                             <h3 class="footer-title">Photostream</h3>
                             <ul class="footer-img">
-                                <li><a href="#"><img alt="" src="asset/img/instagram/1.jpg"></a></li>
-                                <li><a href="#"><img alt="" src="asset/img/instagram/2.jpg"></a></li>
-                                <li><a href="#"><img alt="" src="asset/img/instagram/3.jpg"></a></li>
-                                <li><a href="#"><img alt="" src="asset/img/instagram/4.jpg"></a></li>
-                                <li><a href="#"><img alt="" src="asset/img/instagram/5.jpg"></a></li>
-                                <li><a href="#"><img alt="" src="asset/img/instagram/6.jpg"></a></li>
+                                <li><a href="#"><img alt="" src="/asset/img/instagram/1.jpg"></a></li>
+                                <li><a href="#"><img alt="" src="/asset/img/instagram/2.jpg"></a></li>
+                                <li><a href="#"><img alt="" src="/asset/img/instagram/3.jpg"></a></li>
+                                <li><a href="#"><img alt="" src="/asset/img/instagram/4.jpg"></a></li>
+                                <li><a href="#"><img alt="" src="/asset/img/instagram/5.jpg"></a></li>
+                                <li><a href="#"><img alt="" src="/asset/img/instagram/6.jpg"></a></li>
                             </ul>
                         </div>
                     </div>
