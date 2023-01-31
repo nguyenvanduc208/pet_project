@@ -8,7 +8,7 @@
 
             <AdminHeader />
 
-            <slot name="content-view" ></slot>
+            <slot name="content-view"></slot>
 
             <AdminFooter />
 
@@ -21,15 +21,22 @@
 </template>
 
 <script>
-    import AdminHeader from '@/components/Admin/Layouts/Header.vue'
-    import AdminFooter from '@/components/Admin/Layouts/Footer.vue'
-    import AdminSidebar from '@/components/Admin/Layouts/Sidebar.vue'
-    export default {
-        name: 'AdminMainView',
-        components: {
-            AdminFooter,
-            AdminHeader,
-            AdminSidebar
+import AdminHeader from '@/components/Admin/Layouts/Header.vue'
+import AdminFooter from '@/components/Admin/Layouts/Footer.vue'
+import AdminSidebar from '@/components/Admin/Layouts/Sidebar.vue'
+import router from '@/router'
+export default {
+    name: 'AdminMainView',
+    components: {
+        AdminFooter,
+        AdminHeader,
+        AdminSidebar
+    },
+
+    created() {
+        if (this.$route.path.startsWith('/admin') && sessionStorage.getItem('token') == undefined) {
+            router.push('/login')
         }
-    }
+    },
+}
 </script>

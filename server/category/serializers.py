@@ -1,7 +1,8 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from .models import Category
 
-class CategorySerializer(ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = Category
-        fields = ('name', 'status', 'image')
+        fields = '__all__'
