@@ -63,5 +63,14 @@ export default {
 
         }
     },
+
+    beforeRouteEnter(to, from, next) {
+        const token = sessionStorage.getItem('token');
+        if (!token) {
+            next();
+        } else {
+            next({ name: 'admin' });
+        }
+    },
 }
 </script>

@@ -105,6 +105,8 @@ export default {
     methods: {
         handleLogOut(){
             sessionStorage.removeItem('token')
+            const idTimeout = sessionStorage.getItem('idTimeout')
+            clearTimeout(idTimeout)
             window.location.reload()
         }
     },

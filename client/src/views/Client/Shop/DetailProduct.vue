@@ -274,7 +274,7 @@
 
 <script>
 export default {
-    name: 'SingleProduct',
+    name: 'DetailProduct',
     methods: {
         getPhoto() {
             return '/asset/img/shop/shop-details/1.jpg';

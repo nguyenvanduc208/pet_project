@@ -80,7 +80,6 @@
 }
 
 .content {
-    margin-left: 250px;
     min-height: 100vh;
     background: #FFFFFF;
     transition: 0.5s;
@@ -96,7 +95,7 @@
     }
 
     .content {
-        width: calc(100% - 250px);
+        width: 100%;
     }
 
     .content.open {

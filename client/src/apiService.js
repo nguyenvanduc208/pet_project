@@ -8,6 +8,12 @@ const login = (credentials) => {
     .then((response) => {
       sessionStorage.setItem("token", JSON.stringify(response.data));
 
+      const idTimeout = setTimeout(() => {
+        sessionStorage.removeItem('token')
+      }, Number(response.data.exp) * 1000)
+
+      sessionStorage.setItem('idTimeout', idTimeout)
+
       return response;
     })
     .catch((error) => {

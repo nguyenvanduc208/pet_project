@@ -258,6 +258,6 @@
 
 <script>
 export default {
-    name: 'ShopView'
+    name: 'ShopList'
 }
 </script>
