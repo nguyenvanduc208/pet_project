@@ -54,13 +54,13 @@ const router = createRouter({
           component: Dashboard,
         },
         {
-          path: "category",
+          path: "/category",
           name: 'category',
           component: CategoryList,
         },
         {
           path: "category/add",
-          name: 'category',
+          name: 'category-add',
           component: CategoryForm,
         },
       ],
