@@ -35,6 +35,7 @@
 <script>
 import apiSevice from '../apiService.js'
 import router from '@/router'
+import Cookies from 'js-cookie'
 
 export default {
     name: 'LoginPage',
@@ -53,7 +54,6 @@ export default {
             }
 
             const res = await apiSevice.login(data)
-
             if (!res) {
                 this.message = 'Incorrect username or password'
             } else {
@@ -65,7 +65,7 @@ export default {
     },
 
     beforeRouteEnter(to, from, next) {
-        const token = sessionStorage.getItem('token');
+        const token = Cookies.get('token')
         if (!token) {
             next();
         } else {

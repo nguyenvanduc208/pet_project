@@ -1,7 +1,8 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from image.models import Image
 
-class ImageSerializer(ModelSerializer):
+class ImageSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = Image
-        fields = ('title', 'path')
+        fields = ('id', 'title', 'path')

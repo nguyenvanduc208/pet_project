@@ -1,19 +1,14 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:8000/";
+import Cookies from "js-cookie"
+import {API_URL} from '@/config.js'
 
 const login = (credentials) => {
   return axios
-    .post(`${API_URL}authen/login/`, credentials)
+    .post(`${API_URL}/authen/login/`, credentials)
     .then((response) => {
-      sessionStorage.setItem("token", JSON.stringify(response.data));
-
-      const idTimeout = setTimeout(() => {
-        sessionStorage.removeItem('token')
-      }, Number(response.data.exp) * 1000)
-
-      sessionStorage.setItem('idTimeout', idTimeout)
-
+      const timeTokenExpires = new Date(new Date().getTime() + Number(response.data.exp) * 1000)
+      Cookies.set('token', response.data.access, {expires: timeTokenExpires})
+      Cookies.set('name', response.data.username, {expires: timeTokenExpires})
       return response;
     })
     .catch((error) => {
@@ -21,6 +16,38 @@ const login = (credentials) => {
     });
 };
 
+const addImage = (credentials) => {
+  return axios
+    .post(`${API_URL}/image/`, credentials, {
+      headers: {
+        Authorization: `Bearer ${Cookies.get('token')}`
+      }
+    })
+    .then((response) => {
+      return response.data
+    })
+    .catch( error => {
+      return false
+    })
+}
+
+const addCategory = credentials => {
+  return axios
+  .post(`${API_URL}/category/`, credentials, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get('token')}`
+    }
+  })
+  .then((response) => {
+    return response.data
+  })
+  .catch( error => {
+    return false
+  })
+}
+
 export default {
   login,
+  addImage,
+  addCategory
 };

@@ -24,6 +24,8 @@
 import AdminHeader from '@/components/Admin/Layouts/Header.vue'
 import AdminFooter from '@/components/Admin/Layouts/Footer.vue'
 import AdminSidebar from '@/components/Admin/Layouts/Sidebar.vue'
+import Cookies from 'js-cookie'
+
 export default {
     name: 'AdminMainView',
     components: {
@@ -32,7 +34,7 @@ export default {
         AdminSidebar
     },
     beforeRouteEnter(to, from, next) {
-        const token = sessionStorage.getItem('token');
+        const token = Cookies.get('token')
         if (token) {
             next();
         } else {

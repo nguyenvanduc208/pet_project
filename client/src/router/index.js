@@ -59,7 +59,7 @@ const router = createRouter({
           component: CategoryList,
         },
         {
-          path: "category",
+          path: "category/add",
           name: 'category',
           component: CategoryForm,
         },
