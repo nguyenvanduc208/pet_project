@@ -7,3 +7,13 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
+
+
+class InfoSerializer(serializers.Serializer):
+    total_page = serializers.IntegerField()
+    page = serializers.CharField()
+
+
+class CustomSerializer(serializers.Serializer):
+    result = CategorySerializer(many=True)
+    info = InfoSerializer()

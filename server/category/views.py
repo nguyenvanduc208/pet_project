@@ -1,4 +1,4 @@
-from .serializers import CategorySerializer
+from .serializers import CategorySerializer, CustomSerializer
 from .models import Category
 
 from rest_framework.views import APIView
@@ -22,22 +22,29 @@ class CategoryView(APIView):
     def get(self, request, pk=None):
         if pk is not None:
             category = self.get_obj(pk)
-            seralizer = CategorySerializer(category, many=False)
-            return Response(seralizer.data)
+            serializer = CategorySerializer(category, many=False)
+            return Response(serializer.data)
+        
+        is_page = request.GET.get('page')
+        categories = Category.objects.all()
+        if is_page is None: 
+            serializer = CategorySerializer(categories, many=True)
+            return Response(serializer.data)
 
-        page = request.GET.get('page')
-        data = Category.objects.all()
-        if page is None:
-            page_obj = data
-        else:
-            paginator = Paginator(data, 10)
-            try:
-                page_obj = paginator.page(page)
-            except:
-                return Response([])
+        paginate = Paginator(categories, 10)
+        page_data = paginate.page(is_page)
 
-        seralizer = CategorySerializer(page_obj, many=True)
-        return Response(seralizer.data)
+        page_info = {
+            'total_page': paginate.__dict__['num_pages'],
+            'page': is_page
+        }
+
+        serializer = CustomSerializer({
+            'result': page_data,
+            'info': page_info
+        })
+
+        return Response(serializer.data)
 
     def post(self, request):
         data = request.data
