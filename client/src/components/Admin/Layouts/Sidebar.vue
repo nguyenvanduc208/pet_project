@@ -19,11 +19,10 @@
                 </div>
             </div>
             <div class="navbar-nav w-100">
-                <router-link :to="{ name: 'dashboard' }" class="nav-item nav-link" exact
-                    :active-class="activeLinkClass('dashboard')"><i
+                <router-link :to="{ name: 'dashboard' }" class="nav-item nav-link"><i
                         class="fa fa-tachometer-alt me-2"></i>Dashboard</router-link>
-                <router-link :to="{ name: 'category' }" class="nav-item nav-link" exact
-                    :active-class="activeLinkClass('category')"><i class="fa fa-th me-2"></i>Category</router-link>
+                <router-link :to="{ name: 'category' }" class="nav-item nav-link" :class="{'active' : isLinkCategory}" ><i class="fa fa-th me-2"></i>Category</router-link>
+                <router-link :to="{ name: 'product' }" class="nav-item nav-link" :class="{'active' : isLinkProduct}" ><i class="fa fa-th me-2"></i>Product</router-link>
             </div>
         </nav>
     </div>
@@ -36,15 +35,18 @@ import Cookies from 'js-cookie'
 
 export default {
     name: 'AdminSidebar',
-    methods: {
-        activeLinkClass(link) {
-            return this.$route.name === link ? 'active' : '';
-        }
-    },
     computed :  {
         getName(){
             return Cookies.get('name')
-        }
+        },
+        
+        isLinkCategory(){
+            return this.$route.path.includes('/admin/category')
+        },
+        isLinkProduct(){
+            return this.$route.path.includes('/admin/product')
+        },
+        
     }
 }
 </script>

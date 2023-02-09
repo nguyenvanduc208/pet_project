@@ -9,6 +9,8 @@ import AdminMainView from "@/views/Admin/Main.vue";
 import Dashboard from "@/views/Admin/Dashboard.vue";
 import CategoryList from "@/components/Admin/Category/List.vue";
 import CategoryForm from "@/components/Admin/Category/Form.vue";
+import ProductList from "@/components/Admin/Product/List.vue"
+import NotFound from "@/views/notFound.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,7 +56,7 @@ const router = createRouter({
           component: Dashboard,
         },
         {
-          path: "/category",
+          path: "category",
           name: 'category',
           component: CategoryList,
         },
@@ -63,8 +65,20 @@ const router = createRouter({
           name: 'category-add',
           component: CategoryForm,
         },
+        {
+          path: "category/update/:id",
+          name: 'category-update',
+          component: CategoryForm,
+        },
+        {
+          path: "product",
+          name: 'product',
+          component: ProductList,
+        },
       ],
     },
+
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
   ],
 });
 

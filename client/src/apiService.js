@@ -50,7 +50,7 @@ const addCategory = (credentials) => {
     });
 };
 
-const getCategory = (page) => {
+const getCategories = (page) => {
   return axios
     .get(`${API_URL}/category/?page=${page}`)
     .then((response) => {
@@ -61,9 +61,53 @@ const getCategory = (page) => {
     });
 };
 
+const getCategory = (id) => {
+  return axios
+    .get(`${API_URL}/category/${id}`)
+    .then( response => {
+      return response.data
+    })
+    .catch( error => {
+      return false
+    })
+}
+
+const updateCategory = (credentials,id) => {
+  return axios
+    .put(`${API_URL}/category/${id}`, credentials, {
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`,
+      },
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      return false;
+    });
+};
+
+const deleteCategory = id => {
+  return axios
+  .delete(`${API_URL}/category/${id}`,{
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    },
+  })
+  .then( response => {
+    return response.data
+  })
+  .catch( error => {
+    return false
+  })
+}
+
 export default {
   login,
   addImage,
   addCategory,
-  getCategory
+  getCategories,
+  getCategory,
+  updateCategory,
+  deleteCategory
 };
