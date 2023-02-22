@@ -15,6 +15,7 @@ from django.shortcuts import get_object_or_404
 
 class CategoryView(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
+
     def get_obj(self, pk):
         category = get_object_or_404(Category, pk=pk)
         return category
@@ -24,10 +25,10 @@ class CategoryView(APIView):
             category = self.get_obj(pk)
             serializer = CategorySerializer(category, many=False)
             return Response(serializer.data)
-        
+
         is_page = request.GET.get('page')
         categories = Category.objects.all()
-        if is_page is None: 
+        if is_page is None:
             serializer = CategorySerializer(categories, many=True)
             return Response(serializer.data)
 
